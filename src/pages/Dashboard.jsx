@@ -19,7 +19,7 @@ export default function Dashboard() {
   const token = localStorage.getItem("token");
   const API_URL = `${import.meta.env.VITE_PUBLIC_BASEURL}/api`;
 
-  // 🔹 Fetch profile
+  
   useEffect(() => {
     if (activeTab === "profile" && token) {
       axios
@@ -29,7 +29,7 @@ export default function Dashboard() {
     }
   }, [activeTab]);
 
-  // 🔹 Fetch tasks
+  
   useEffect(() => {
     if (activeTab === "tasks" && token) {
       axios
@@ -39,21 +39,21 @@ export default function Dashboard() {
     }
   }, [activeTab]);
 
-  // 🔹 Open modal for new task
+  
   const openNewTaskModal = () => {
     setEditingTask(null);
     setTaskForm({ title: "", description: "" });
     setIsTaskModalOpen(true);
   };
 
-  // 🔹 Open modal for edit
+
   const openEditTaskModal = (task) => {
     setEditingTask(task);
     setTaskForm({ title: task.title, description: task.description });
     setIsTaskModalOpen(true);
   };
 
-  // 🔹 Save task (create or update)
+  
   const handleSaveTask = async (e) => {
     e.preventDefault();
     try {
@@ -78,7 +78,7 @@ export default function Dashboard() {
     }
   };
 
-  // 🔹 Delete task
+  
   const handleDeleteTask = async (id) => {
     try {
       await axios.delete(`${API_URL}/tasks/${id}`, {
@@ -90,7 +90,7 @@ export default function Dashboard() {
     }
   };
 
-  // 🔹 Toggle complete
+  
   const handleToggleComplete = async (task) => {
     try {
       const res = await axios.put(
@@ -104,7 +104,7 @@ export default function Dashboard() {
     }
   };
 
-  // 🔹 Filtering & Sorting
+  
   let filteredTasks = tasks.filter(
     (t) =>
       t.title.toLowerCase().includes(search.toLowerCase()) ||

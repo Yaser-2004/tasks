@@ -23,7 +23,6 @@ export default function LandingPage() {
         setIsLoginOpen(false);
         setLoading(true);
 
-        // Redirect after 1 second so user sees the message
         setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
         console.log(error);
