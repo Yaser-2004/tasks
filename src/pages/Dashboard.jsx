@@ -17,7 +17,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
-  const API_URL = "http://localhost:5000/api";
+  const API_URL = `${import.meta.env.VITE_PUBLIC_BASEURL}/api`;
 
   // 🔹 Fetch profile
   useEffect(() => {
