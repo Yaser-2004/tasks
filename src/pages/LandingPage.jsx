@@ -17,7 +17,7 @@ export default function LandingPage() {
     e.preventDefault();
 
     try {
-        const res = await axios.post('http://localhost:5000/api/auth/login', loginData);
+        const res = await axios.post(`${import.meta.env.VITE_PUBLIC_BASEURL}/api/auth/login`, loginData);
         localStorage.setItem("token", res.data.token);
         setMessage("Welcome back! Redirecting...");
         setIsLoginOpen(false);
@@ -41,7 +41,7 @@ export default function LandingPage() {
     }
 
     try {
-        const res = await axios.post('http://localhost:5000/api/auth/register', {
+        const res = await axios.post(`${import.meta.env.VITE_PUBLIC_BASEURL}/api/auth/register`, {
             fullName: signupData.fullName,
             email: signupData.email,
             password: signupData.password,
